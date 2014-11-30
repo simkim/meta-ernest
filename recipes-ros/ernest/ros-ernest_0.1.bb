@@ -18,7 +18,8 @@ PACKAGES += "ros-ernest-python"
 FILES_ros-ernest-python += "/opt/ros/hydro/lib/ernest"
 pkg_postinst_ros-ernest () {
 #!/bin/sh -e
-mkdir /etc/servo
+mkdir -p /etc/servo
 cp /opt/ros/hydro/share/ernest/ernest.ini /etc/servo
+ln -sf /etc/servo/ernest.ini /etc/servo/ax.ini
 cp /opt/ros/hydro/share/ernest/98-ernest.rules /etc/udev/rules.d
 }
