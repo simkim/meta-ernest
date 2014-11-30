@@ -1,0 +1,23 @@
+DESCRIPTION = "svox tts library"
+SECTION = "devel"
+LICENSE = "APACHE"
+LIC_FILES_CHKSUM = "file://src/NOTICE;md5=506fbea94b9d051d6478776c50a4c66b"
+HOMEPAGE = "https://github.com/simkim/pydynamixel"
+DEPENDS = ""
+
+PR = "r0"
+SRC_URI = "git://anonscm.debian.org/collab-maint/svox.git;patchdir=../"
+SRC_URI += "file://0001-autoconf-building-of-library-using-libtool.patch;patchdir=../"
+SRC_URI += "file://0002-gitignore-for-autotools-files.patch;patchdir=../"
+SRC_URI += "file://0003-pico2wave-Convert-text-to-.wav-using-svox-text-to-sp.patch;patchdir=../"
+SRC_URI += "file://0004-add-header-files.patch;patchdir=../"
+SRC_URI += "file://0005-Install-lang-files.patch;patchdir=../"
+SRC_URI += "file://0006-Set-picolangdir.patch;patchdir=../"
+SRC_URI += "file://0008-64bits.patch;patchdir=../"
+
+SRCREV = "master"
+PV = "0.0.1+git${SRCREV}"
+S = "${WORKDIR}/git/pico"
+inherit autotools
+PACKAGES+="libttspico-lang"
+FILES_libttspico-lang = "/usr/share/pico/lang/"
